@@ -46,10 +46,10 @@ var catty = new Cat('Catty');
 
 console.log(catty._name);
 catty.dailyNorm(88);
-// catty.dailyNorm(88);
+// catty.dailyNorm(8);
 // catty.dailyNorm(888);
 console.log(catty.dailyNorm());
-catty.feed().stroke().stroke().stroke().feed()
+catty.feed().stroke().stroke().stroke().feed();
 
 // var miaf = new Animal('Miaf');
 // miaf.feed().stroke();
