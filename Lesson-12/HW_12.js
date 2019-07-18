@@ -1,8 +1,7 @@
 //Задание №1
 function forNames(names) {
-
     var result = names.map(function (item) {
-        return {'name': item};
+        return {name: item};
     });
     return result;
 }
@@ -14,12 +13,10 @@ console.log(forNames(n));
 //Задание №2
 
 function getTime(arr) {
-
     var total = arr.reduce(function (sum, item) {
         return sum + ':' + item;
-    });
-
-    return 'Текущее время: ' + total;
+    }, 'Tекущее время');
+    return total;
 }
 
 console.log(getTime(['00', '13', '24']));
@@ -28,9 +25,9 @@ console.log(getTime(['00', '13', '24']));
 
 function getVowel(word) {
     var count = 0;
-    var vovelSearch = ["а", "о", "и", "е", "ё", "э", "ы", "у", "ю", "я"];
-    word.split('').map(function (letter) {
-        vovelSearch.map(function (value) {
+    var vovelSearch = ['а', 'о', 'и', 'е', 'ё', 'э', 'ы', 'у', 'ю', 'я'];
+    word.split('').forEach(function (letter) {
+        vovelSearch.forEach(function (value) {
             if (letter.toLowerCase() === value) {
                 count++;
             }
@@ -46,15 +43,20 @@ console.log(getVowel('сколько гласных'));
 
 function getWord(text) {
     var count = 0;
-    text.split(/[ .:;?!~,'"&|()<>{}\[\]\r\n/\\]+/).map(function (word) {
-        var countLetters = word.split('').map(function () {
-            return count++;
+    text.split(/[.:;?!~,'"&|()<>{}\[\]\r\n/\\]+/).filter(function (word) {
+        var countLetters = word.split('').filter(function (val) {
+
+            if (val === ' ') {
+                return 0;
+            }
+            return count ++;
+
         });
         console.log(word + ':' + countLetters.length);
     });
 }
 
-getWord('сколько! будет,? букв');
+getWord('Написать функцию, которая будет принимать текст в качестве параметра');
 
 // Задание №5*
 
@@ -70,9 +72,13 @@ function getWords(text) {
         }
     });
     for (var key in result) {
-        console.log('Максимальное число повторений у слова ' + '"' + key + '"' + ' - ' + result[key] + ' раз(а)');
+        console.log ('Максимальное число повторений у слова ' + '"' + key + '"' + ' - ' + result[key] + ' раз(а)');
     }
+
 }
 
 getWords('сколько! будет, будет, будет будет повторов? повторов');
 
+
+// Задание 5:
+// -Не успел разобраться,пробовал через Math.max - ничего не получилось
