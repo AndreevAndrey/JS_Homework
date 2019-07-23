@@ -33,6 +33,7 @@ var y = document.getElementById('y');
 function check() {
     button.disabled = x.value && y.value ? false : "disabled";
 }
+
 x.onkeyup = check;
 y.onkeyup = check;
 
@@ -42,45 +43,45 @@ button.onclick = function () {
         isNaN(x.value) || isNaN(y.value)) {
         alert('wtf');
     } else {
-         chess();
+        chess();
     }
 };
 var table = document.createElement("table");
 
- function chess() {
-     for (var i = 1; i <= x.value; i++) {
-         var tr = document.createElement('tr');
-         for (var j = 1; j <= y.value; j++) {
-             var td = document.createElement('td');
-             if (i % 2 === j % 2) {
-                 td.className = 'white';
-             } else {
-                 td.className = 'black';
-             }
-             tr.appendChild(td);
-         }
-         var childTr = table.appendChild(tr);
-         var childrenTr = childTr.children;
-     }
-     var childTable = document.body.appendChild(table);
-     var childrenTable = childTable.children;
+function chess() {
+    for (var i = 1; i <= x.value; i++) {
+        var tr = document.createElement('tr');
+        for (var j = 1; j <= y.value; j++) {
+            var td = document.createElement('td');
+            if (i % 2 === j % 2) {
+                td.className = 'white';
+            } else {
+                td.className = 'black';
+            }
+            tr.appendChild(td);
+        }
+        var childTr = table.appendChild(tr);
+        var childrenTr = childTr.children;
+    }
+    var childTable = document.body.appendChild(table);
+    var childrenTable = childTable.children;
 
-     table.addEventListener('click', function (e) {
-         var target = e.target;
-         for (var p = 1; p < childrenTable.length; p++) {
-             for (var n = 0; n < childrenTr.length; n++) {
-                 if ((target.className === 'white') === (childrenTr[n].className === 'white')) {
-                     childrenTr[n].className = 'black';
-                 } else {
-                     childrenTr[n].className = 'white';
-                 }
-                 if ((target.className === 'black') === (childrenTr[n].className === 'black')) {
-                     childrenTr[n].className = 'white';
-                 } else {
-                     childrenTr[n].className = 'black';
-                 }
-             }
-         }
-     });
- }
+    table.addEventListener('click', function (e) {
+        var target = e.target;
+        for (var p = 1; p < childrenTable.length; p++) {
+            for (var n = 0; n < childrenTr.length; n++) {
+                if ((target.className === 'white') === (childrenTr[n].className === 'white')) {
+                    childrenTr[n].className = 'black';
+                } else {
+                    childrenTr[n].className = 'white';
+                }
+                if ((target.className === 'black') === (childrenTr[n].className === 'black')) {
+                    childrenTr[n].className = 'white';
+                } else {
+                    childrenTr[n].className = 'black';
+                }
+            }
+        }
+    });
+}
 
