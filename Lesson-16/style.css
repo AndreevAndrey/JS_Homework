@@ -1,0 +1,57 @@
+#button {
+		background: aquamarine;
+		border-radius: 5px;
+		height: 40px;
+		cursor: pointer;
+		font-weight: bold;
+}
+
+.active span {
+		font-size: 20px;
+		font-weight: bold;
+		color: red;
+}
+
+.tab {
+		display: inline-block;
+		padding: 20px;
+		cursor: pointer;
+		position: relative;
+		z-index: 5;
+		background: aquamarine;
+		border-radius: 5px 5px 0 0;
+		box-shadow: 5px -5px 10px #99a1b3;
+		margin-right: 5px;
+}
+
+.one {
+		border: 1px solid #afb3af;
+		border-bottom: 1px solid white;
+		border-radius: 5px 5px 0 0;
+		background: white;
+
+}
+
+.tabContent {
+		width: 300px;
+		border: 1px solid #afb3af;
+		position: relative;
+		top: -1px;
+		z-index: 1;
+		padding: 10px;
+		border-radius: 0 5px 5px 5px;
+		text-align: center;
+}
+
+.tabContent p {
+		font-weight: bold;
+		font-size: 20px;
+}
+
+.hide {
+		display: none;
+}
+
+.active {
+		display: block;
+}
