@@ -12,9 +12,10 @@ button.onclick = function () {
                 tabs.className = 'active';
                 for (var j = 0; j < obj.length; j++) {
                     tabs.innerHTML += '<div class="tab">' + 'User ' + (j + 1) + '</div>';
-                    if (xhr.responseURL !== 'https://reqres.in/api/users?page=2') {
-                        tabs.innerHTML = '<span>' + 'Connection error, not found page 2' + '</span>';
-                    }
+                }
+                if (xhr.responseURL !== 'https://reqres.in/api/users?page=2') {
+                    tabs.innerHTML = '<span>' + 'Error connecting to server' + '</span>';
+                    button.onclick = null;
                 }
                 tab[0].className = 'tab one';
                 for (var q = 0; q < obj.length; q++) {
@@ -25,10 +26,8 @@ button.onclick = function () {
                     localStorage.setItem('User' + (q + 1), obj[q].first_name +
                         ' ' + obj[q].last_name +
                         ' ' + obj[q].avatar);
-                    //Убить запрос,вроде, не получилось,пробовал прописывать и через window.onload(как в задании при
-                    // загрузке страницы),но тоже такой же результат.
                     if (localStorage.getItem('User' + (q + 1))) {
-                        xhr.onabort = function () {
+                        window.onload = function () {
                             xhr.abort();
                         };
                     }
@@ -38,15 +37,18 @@ button.onclick = function () {
                 tabs.className = 'active';
                 tabs.innerHTML = '<span>' + 'Error connecting to server: ' + '</span>' + this.status;
                 console.log(this.statusText);
+                button.onclick = null;
             }
         };
         xhr.onerror = function () {
             console.log(this.status + ' - ' + this.statusText);
             tabs.className = 'active';
             tabs.innerHTML = '<span>' + 'Error connecting to server: ' + '</span>' + this.status;
+            button.onclick = null;
         };
         xhr.send();
     })();
+
 };
 var tabContent = document.getElementsByClassName('tabContent');
 var tab = document.getElementsByClassName('tab');
