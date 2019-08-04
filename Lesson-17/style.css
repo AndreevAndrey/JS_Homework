@@ -1,0 +1,40 @@
+body {
+  margin-top: 200px;
+  text-align: center;
+  font-family: 'Play', sans-serif;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  margin: 15px;
+  font-size: 30px;
+  cursor: pointer;
+  font-family: 'Play', sans-serif;
+  border-radius: 10px;
+}
+
+button:active, button:focus {
+  outline: none;
+}
+
+#start {
+  background: mediumspringgreen;
+}
+
+span {
+  font-size: 100px;
+}
+
+.hide {
+  display: none;
+}
+
+.active {
+  display: inline;
+}
+
+#val {
+  font-size: 30px;
+  color: red;
+}
