@@ -1,0 +1,66 @@
+body {
+  font-family: 'Play', sans-serif;
+  box-sizing: border-box;
+  height: 1350px;
+}
+
+.content {
+  background: url("./Vynilizer/Base.png") no-repeat center center;
+  width: 1600px;
+  margin: 0 auto;
+  display: flex;
+}
+
+#vynil {
+  transform-origin: 60% 15%;
+}
+
+#vynilizer {
+  position: relative;
+  bottom: 12px;
+  left: 12px;
+}
+
+.container {
+  text-align: right;
+  position: absolute;
+  right: 200px;
+  width: 180px;
+  word-break: break-word;
+}
+
+.container p {
+  cursor: pointer;
+}
+
+button {
+  width: 80px;
+  height: 20px;
+  cursor: pointer;
+  font-family: 'Play', sans-serif;
+  border-radius: 10px;
+}
+
+button:active, button:focus {
+  outline: none;
+}
+
+#start {
+  background: mediumspringgreen;
+}
+
+.hide {
+  display: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.active {
+  display: inline;
+}
+
+#val {
+  color: red;
+}
